@@ -1,0 +1,26 @@
+# Django project files
+*.pyc
+*.pyo
+__pycache__/
+*.sqlite3
+db.sqlite3
+
+# Development tools
+.vscode/
+.idea/
+*.pyc
+
+# Virtual environments
+venv/
+myvenv/
+myenv/
+
+# Static files
+staticfiles/
+static/
+
+# Media files
+media/
+
+# Ignore sensitive or environment-specific information
+.env
