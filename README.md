@@ -96,7 +96,7 @@ For more details on how to implement language support in the application, please
 
 ## Installation
 
-
+```
 cd desktop
 django-admin startproject mediguide
 cd mediguide
@@ -112,7 +112,7 @@ python manage.py startapp core
 
 python manage.py createsuperuser
 
-
+```
 
 
 # mediguide
