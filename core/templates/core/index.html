@@ -1,49 +1,30 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Medication List</title>
-  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'core/static/css/main.css' %}">
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h2>Medication List</h2>
-
-        <form action="{% url 'search' %}" method="GET" class="mb-3">
-            <div class="input-group">
-                <input id="searchInput" type="text" class="form-control" name="query" placeholder="Search by name or active agent">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </div>
-        </form>
-
-        <ul class="list-group list-group-horizontal">
-            {% for letter in letters %}
-                <li class="list-group-item">
-                    <a href="#" class="letter-link" data-letter="{{ letter }}">{{ letter }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-
-
-        <!-- Display the search query -->
-        {% if search_query %}
-      
-              {% include "includes/query_result.html" %}
-        {% endif %}
-
-
-        <br>
-
-        {% for letter in letters %}
-            {% include "includes/letters_result.html" %}
-        {% endfor %}
+      <h2>Medication List</h2>
+      <br>
+      <span style="color:orange">Press the search button to get new results</span>
+      <br>
+      <form action="{% url 'search' %}" method="GET" class="mb-3">
+        <div class="input-group">
+          <input id="searchInput" type="text" class="form-control" name="query" placeholder="Search by name or active agent">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+      </form>
+      <ul class="list-group list-group-horizontal-md"> {% for letter in letters %} <li class="list-group-item">
+          <a href="#" class="letter-link" data-letter="{{ letter }}">{{ letter }}</a>
+        </li> {% endfor %} </ul>
+      <!-- Display the search query --> {% if search_query %} {% include "includes/query_result.html" %} {% endif %} <br> {% for letter in letters %} {% include "includes/letters_result.html" %} {% endfor %}
     </div>
-
     <script type="text/javascript" src="{% static 'core/static/js/script.js' %}"></script>
-
-</body>
+  </body>
 </html>
 
 

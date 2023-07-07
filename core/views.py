@@ -25,8 +25,7 @@ def search(request):
         medications = medications.filter(
             Q(name__icontains=query) | Q(active_ingredient__icontains=query),
             
-        )
-    
+        )  
 
     context = {
         'medications': medications,
@@ -35,7 +34,6 @@ def search(request):
         'search_query': query,
     }
 
-    print("context is :", context)
     return render(request, 'core/index.html', context)
 
 
