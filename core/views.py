@@ -17,13 +17,16 @@ def index(request):
 def search(request):
     query = request.GET.get('query')
     medications = MedicationInfo.objects.all()
+   
     letters = [chr(letter) for letter in range(65, 91)]  # A-Z
 
-    if query:
+    if query and query.strip():
+    
         medications = medications.filter(
-            Q(name__icontains=query) | Q(active_ingredient__icontains=query)
+            Q(name__icontains=query) | Q(active_ingredient__icontains=query),
+            
         )
-
+    
 
     context = {
         'medications': medications,
@@ -32,6 +35,7 @@ def search(request):
         'search_query': query,
     }
 
+    print("context is :", context)
     return render(request, 'core/index.html', context)
 
 
